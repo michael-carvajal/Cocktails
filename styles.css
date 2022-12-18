@@ -13,3 +13,22 @@ body {
     text-align: center;
 
   }
+
+.btn-click{
+    background-color: red;
+}
+
+
+.image {
+    transition: transform 1s ease-in;
+    transform: scale(1);
+    /* original size */
+    overflow: clip;
+        /* clip any content that overflows the element's boundaries */
+}
+
+.image:hover {
+    transform: scaleY(1.2) ;
+    margin-top: 25px;
+    /* double the size */
+}
