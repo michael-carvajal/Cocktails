@@ -16,6 +16,7 @@ body {
 
 .btn-click{
     background-color: red;
+    color: whitesmoke;
 }
 
 
@@ -23,12 +24,12 @@ body {
     transition: transform 1s ease-in;
     transform: scale(1);
     /* original size */
+    margin-top: 25px;
     overflow: clip;
         /* clip any content that overflows the element's boundaries */
 }
 
 .image:hover {
     transform: scaleY(1.2) ;
-    margin-top: 25px;
     /* double the size */
 }
