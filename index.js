@@ -12,18 +12,18 @@ window.onload = () => {
 
 
     reset.onclick = () => {
-        if (liquors.value = 'rum') {
+        if (liquors.value === 'rum') {
             multiplier = 11;
-        } else if (liquors.value = 'tequila') {
+        } else if (liquors.value === 'tequila') {
             multiplier = 5;
-        } else if (liquors.value = 'vodka') {
+        } else if (liquors.value === 'vodka') {
             multiplier = 9;
-        } else if (liquors.value = 'gin') {
+        } else if (liquors.value === 'gin') {
             multiplier = 20;
-        } else if (liquors.value = 'whiskey') {
+        } else if (liquors.value === 'whiskey') {
             multiplier = 1;
         }
-        let random_number = Math.floor(Math.random() * 11)
+        let random_number = Math.floor(Math.random() * multiplier)
         const options = {
             method: 'GET',
             headers: {
@@ -34,10 +34,14 @@ window.onload = () => {
 
         fetch(`https://the-cocktail-db.p.rapidapi.com/search.php?s=${liquors.value}`, options)
         .then(response => response.json())
-            .then(response => {
-                console.log(response.drinks[random_drink])
+            .then(data => {
+                drink = data.drinks[random_number].strDrink;
             })
-        .catch(err => console.error(err));
+            .then(() => {
+                random_drink.value = drink;
+            })
+            .catch(err => console.error(err));
+
     }
 
 
