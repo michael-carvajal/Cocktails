@@ -11,6 +11,7 @@ window.onload = () => {
     const ingredient_list = document.getElementById('ingredient_list');
     let drink = '';
     let ingredients = [];
+    let measures = [];
     let image = '';
     let multiplier;
 
@@ -30,7 +31,6 @@ window.onload = () => {
         ingredients = [];
 
         deleteChild();
-        console.log(typeof(ingredient_list));
         if (liquors.value === 'rum') {
             multiplier = 11;
         } else if (liquors.value === 'tequila') {
@@ -55,6 +55,7 @@ window.onload = () => {
         .then(response => response.json())
             .then(data => {
                 let i = 1;
+                let j = 1;
                 drink = data.drinks[random_number].strDrink;
                 while (true) {
                     let ingredientKey = `strIngredient${i}` ;
@@ -65,13 +66,24 @@ window.onload = () => {
                     ingredients.push(ingredient);
                     i++;
                 }
+                while (true) {
+                    let ingredientMesKey = `strMeasure${j}` ;
+                    let measure = data.drinks[random_number][ingredientMesKey];
+                    if (measure == null) {
+                        break
+                    }
+                    measures.push(measure);
+                    j++;
+                }
             })
             .then(() => {
+                let index = 0;
                 random_drink.value = drink;
-                ingredients.forEach(element => {
+                ingredients.forEach(ingred => {
                     let childDiv = document.createElement("div");
-                    childDiv.innerHTML = element;
+                    childDiv.innerHTML = `${measures[index]} ${ingred}`;
                     ingredient_list.appendChild(childDiv);
+                    index++;
                 });
             })
             .catch(err => console.error(err));
