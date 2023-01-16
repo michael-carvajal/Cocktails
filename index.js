@@ -14,11 +14,23 @@ window.onload = () => {
     let image = '';
     let multiplier;
 
+    function deleteChild() {
+
+        //ingredient_list.firstElementChild can be used.
+        let child = ingredient_list.lastElementChild;
+        while (child) {
+            ingredient_list.removeChild(child);
+            child = ingredient_list.lastElementChild;
+        }
+    }
+
 
     reset.onclick = () => {
-        while (ingredient_list.firstChild) {
-            ingredient_list.removeChild(ingredient_list.firstChild);
-        }
+
+        ingredients = [];
+
+        deleteChild();
+        console.log(typeof(ingredient_list));
         if (liquors.value === 'rum') {
             multiplier = 11;
         } else if (liquors.value === 'tequila') {
@@ -63,6 +75,7 @@ window.onload = () => {
                 });
             })
             .catch(err => console.error(err));
+
 
     }
 
