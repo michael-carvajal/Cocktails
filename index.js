@@ -9,26 +9,41 @@ window.onload = () => {
     const random_drink = document.getElementById('random_drink');
     const reset = document.getElementById('reset');
     const ingredient_list = document.getElementById('ingredient_list');
+    const cocktail_image = document.getElementById('cocktail_image');
     let drink = '';
     let ingredients = [];
     let measures = [];
     let image = '';
     let multiplier;
+    let imgUrl = [];
 
     function deleteChild() {
 
         //ingredient_list.firstElementChild can be used.
-        let child = ingredient_list.lastElementChild;
-        while (child) {
-            ingredient_list.removeChild(child);
-            child = ingredient_list.lastElementChild;
+        let childIngred = ingredient_list.lastElementChild;
+        while (childIngred) {
+            ingredient_list.removeChild(childIngred);
+            childIngred = ingredient_list.lastElementChild;
         }
+        let childImg = cocktail_image.lastElementChild;
+        while (childImg) {
+            cocktail_image.removeChild(childImg);
+            childImg = cocktail_image.lastElementChild;
+        }
+    }
+
+    function createImgEle() {
+        let img = document.createElement("img");
+        img.setAttribute('src', imgUrl[0]);
+        cocktail_image.appendChild(img)
+        console.log(imgUrl[0]);
     }
 
 
     reset.onclick = () => {
 
         ingredients = [];
+        imgUrl = [];
 
         deleteChild();
         if (liquors.value === 'rum') {
@@ -75,6 +90,7 @@ window.onload = () => {
                     measures.push(measure);
                     j++;
                 }
+                imgUrl.push(data.drinks[random_number].strDrinkThumb)
             })
             .then(() => {
                 let index = 0;
@@ -85,6 +101,7 @@ window.onload = () => {
                     ingredient_list.appendChild(childDiv);
                     index++;
                 });
+                createImgEle();
             })
             .catch(err => console.error(err));
 
