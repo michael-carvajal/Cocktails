@@ -14,22 +14,7 @@ body {
 
   }
 
-.btn-click{
-    background-color: red;
-    color: whitesmoke;
-}
-
-
-.image {
-    transition: transform 1s ease-in;
-    transform: scale(1);
-    /* original size */
-    margin-top: 25px;
-    overflow: clip;
-        /* clip any content that overflows the element's boundaries */
-}
-
-.image:hover {
-    transform: scaleY(1.2) ;
-    /* double the size */
+#cocktail_image img {
+    width: 200px;
+    height: 200px;
 }
