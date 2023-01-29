@@ -33,6 +33,7 @@ window.onload = () => {
     }
 
     function createImgEle() {
+        console.log('hello');
         let img = document.createElement("img");
         img.setAttribute('src', imgUrl[0]);
         cocktail_image.appendChild(img)
