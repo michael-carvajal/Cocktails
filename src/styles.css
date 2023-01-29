@@ -6,12 +6,19 @@
 
 body {
     background-color: green;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 #cocktail-display {
     text-align: center;
-
+    font-size: 30px;
+    width: 300px;
+    display: flex;
+flex-direction: column;
   }
 
 #cocktail_image img {
