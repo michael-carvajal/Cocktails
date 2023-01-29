@@ -95,7 +95,7 @@ window.onload = () => {
             })
             .then(() => {
                 let index = 0;
-                random_drink.value = drink;
+                random_drink.innerHTML = drink;
                 ingredients.forEach(ingred => {
                     let childDiv = document.createElement("div");
                     childDiv.innerHTML = `${measures[index]} ${ingred}`;

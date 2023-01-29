@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(/images/neon-drink.png);
 
 }
 
@@ -18,15 +19,40 @@ body {
     font-size: 30px;
     width: 300px;
     display: flex;
-flex-direction: column;
-  }
+    flex-direction: column;
+    background-color: rgba(79, 77, 77, 0.562);
+    border-radius: 3%;
+    justify-content: space-between;
+}
 
 #cocktail_image img {
     width: 200px;
     height: 200px;
 }
 
-select{
+select {
     width: 100px;
     margin-left: 35%;
+    height: 50px;
+    font-size: 20px;
+        background-color: blanchedalmond;
+}
+
+#random_drink {
+    background-color: blanchedalmond;
+    padding: 10px;
+    box-shadow: 5px 5px 2px grey;
+    border-radius: 10%;
+    margin: 10px;
+}
+
+#reset{
+    margin-top:  10px;
+    width: 150px;
+    font-size: 20px;
+    margin-left: 25%;
+    padding: 10px;
+    border-radius: 7%;
+    background-color: rgb(77, 125, 238);
+    color: antiquewhite;
 }
