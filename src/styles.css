@@ -56,3 +56,13 @@ select {
     background-color: rgb(77, 125, 238);
     color: antiquewhite;
 }
+#random_button{
+    margin-top:  10px;
+    width: 150px;
+    font-size: 20px;
+    margin-left: 25%;
+    padding: 10px;
+    border-radius: 7%;
+    background-color: rgb(77, 125, 238);
+    color: antiquewhite;
+}
